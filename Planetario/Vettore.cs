@@ -23,9 +23,14 @@ namespace Planetario
             return new Vettore(v1.X+v2.X, v1.Y+v2.Y);
         }
 
-        public double Modulo(Vettore v1, Vettore v2)
+        public static Vettore operator - (Vettore v1, Vettore v2)
         {
-            double risultato = Math.Sqrt(Math.Pow(v1.X - v2.X, 2) + Math.Pow(v1.Y - v2.Y, 2));
+            return new Vettore(v1.X - v2.X, v1.Y - v2.Y);
+        }
+
+        public double Modulo()
+        {
+            double risultato = Math.Sqrt(Math.Pow(X , 2) + Math.Pow(Y , 2));
             return risultato;
         }
 
@@ -53,6 +58,11 @@ namespace Planetario
                 return false;   
             }
 
+        }
+
+        public Vettore Versore()
+        {
+            return new Vettore(X / Modulo(), Y / Modulo());
         }
 
     }
