@@ -27,6 +27,31 @@ namespace Planetario
         {
             double risultato = Math.Sqrt(Math.Pow(v1.X - v2.X, 2) + Math.Pow(v1.Y - v2.Y, 2));
             return risultato;
+        }
+
+
+        public static Vettore Parse(string s)
+        {
+            string[]xy = s.Split(';');
+            return new Vettore(double.Parse(xy[0]), double.Parse(xy[1]));
+
+        }
+        public override string ToString()
+        {
+            return $"{X};{Y}";
+        }
+
+        public static bool TryParse(string s, out Vettore v)
+        {
+            try {
+                v = Vettore.Parse(s);
+                    return true;
+                }
+            catch
+            {
+                v = null;
+                return false;   
+            }
 
         }
 

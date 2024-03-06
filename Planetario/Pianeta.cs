@@ -14,5 +14,8 @@ namespace Planetario
         public Vettore Accellerazione { get; set; } 
         public Vettore Velocita { get; set; }   
 
+
+
+
     }
 }
