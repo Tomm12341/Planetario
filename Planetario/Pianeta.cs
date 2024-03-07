@@ -14,6 +14,28 @@ namespace Planetario
         public Vettore Accellerazione { get; set; } 
         public Vettore Velocita { get; set; }   
 
+        public static bool operator ==(Pianeta a, Pianeta b)
+        {
+            if(a.Massa == b.Massa && a.Spostamento==b.Spostamento &&  a.Forza == b.Forza && a.Accellerazione==b.Accellerazione && a.Velocita == b.Velocita)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool operator !=(Pianeta a, Pianeta b)
+        {
+            if (a.Massa != b.Massa || a.Spostamento != b.Spostamento || a.Forza != b.Forza || a.Accellerazione != b.Accellerazione || a.Velocita != b.Velocita)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
 
