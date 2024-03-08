@@ -29,11 +29,36 @@ namespace Planetario
 
         public Vettore ForzaTotale(Pianeta riferimento)
         {
-            foreach(Pianeta a in this.Pianeti)
+            Vettore forza = new Vettore(0,0);
+           
+            foreach (Pianeta a in this.Pianeti)
             {
-                if(Pianeta a != Pianeta riferimento)
-            }    
-         
+                if (a != riferimento)
+                {
+                    forza = ForzaReale(a, riferimento);
+                    riferimento.Forza = forza + riferimento.Forza;
+                }
+                else
+                {
+                    riferimento.Forza = riferimento.Forza;
+                }
+            }
+            return riferimento.Forza;
+        }
+
+        public Vettore Accelerazione(Pianeta a)
+        {
+           
+            a.Accelerazione = ForzaTotale(a) / a.Massa;
+            return a.Accelerazione;
+        }
+
+        public Vettore Velocita(Pianeta a)
+        {
+            Vettore Velocita=new Vettore(0,1);
+            Velocita = Accelerazione(a) * dT;
+            return Velocita;
+        }
         
     }
 }

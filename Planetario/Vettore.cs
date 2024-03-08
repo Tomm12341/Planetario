@@ -27,10 +27,40 @@ namespace Planetario
         {
             return new Vettore(d*v1.X, d*v1.Y);
         }
+        public static Vettore operator *( Vettore v1,double d)
+        {
+            return new Vettore(d * v1.X, d * v1.Y);
+        }
 
         public static Vettore operator - (Vettore v1, Vettore v2)
         {
             return new Vettore(v1.X - v2.X, v1.Y - v2.Y);
+        }
+        public static Vettore operator +(Vettore v1, Vettore v2)
+        {
+            return new Vettore(v1.X + v2.X, v1.Y + v2.Y);
+        }
+        public static Vettore operator /(Vettore v1, double a)
+        {
+            return new Vettore(v1.X / a, v1.Y / a);
+        }
+        public static bool operator !=(Vettore v1, Vettore v2)
+        {
+            if (!(v1.X == v2.X && v1.Y == v2.Y))
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+        public static bool operator ==(Vettore v1, Vettore v2)
+        {
+            if (v1.X == v2.X && v1.Y == v2.Y)
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public double Modulo()

@@ -11,12 +11,12 @@ namespace Planetario
         public double Massa { get; set; }
         public Vettore Spostamento { get; set; }    
         public Vettore Forza { get; set; }  
-        public Vettore Accellerazione { get; set; } 
+        public Vettore Accelerazione { get; set; } 
         public Vettore Velocita { get; set; }   
 
         public static bool operator ==(Pianeta a, Pianeta b)
         {
-            if(a.Massa == b.Massa && a.Spostamento==b.Spostamento &&  a.Forza == b.Forza && a.Accellerazione==b.Accellerazione && a.Velocita == b.Velocita)
+            if(a.Massa == b.Massa && a.Spostamento==b.Spostamento &&  a.Forza == b.Forza && a.Accelerazione==b.Accelerazione && a.Velocita == b.Velocita)
             {
                 return true;
             }
@@ -27,7 +27,7 @@ namespace Planetario
         }
         public static bool operator !=(Pianeta a, Pianeta b)
         {
-            if (a.Massa != b.Massa || a.Spostamento != b.Spostamento || a.Forza != b.Forza || a.Accellerazione != b.Accellerazione || a.Velocita != b.Velocita)
+            if (a.Massa != b.Massa || a.Spostamento != b.Spostamento || a.Forza != b.Forza || a.Accelerazione != b.Accelerazione || a.Velocita != b.Velocita)
             {
                 return true;
             }
