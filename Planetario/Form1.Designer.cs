@@ -33,9 +33,9 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtspos = new System.Windows.Forms.TextBox();
+            this.txtvelo = new System.Windows.Forms.TextBox();
+            this.txtmassa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.lstPianeti.FormattingEnabled = true;
             this.lstPianeti.ItemHeight = 16;
             this.lstPianeti.Location = new System.Drawing.Point(116, 33);
-            this.lstPianeti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstPianeti.Margin = new System.Windows.Forms.Padding(4);
             this.lstPianeti.Name = "lstPianeti";
             this.lstPianeti.Size = new System.Drawing.Size(404, 212);
             this.lstPianeti.TabIndex = 0;
@@ -55,7 +55,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(585, 230);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(153, 36);
             this.btnAdd.TabIndex = 1;
@@ -66,7 +66,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(791, 230);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(161, 36);
             this.btnRemove.TabIndex = 2;
@@ -76,36 +76,36 @@
             // btnPlay
             // 
             this.btnPlay.Location = new System.Drawing.Point(661, 297);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(183, 39);
             this.btnPlay.TabIndex = 3;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtspos
             // 
-            this.textBox1.Location = new System.Drawing.Point(633, 46);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 22);
-            this.textBox1.TabIndex = 4;
+            this.txtspos.Location = new System.Drawing.Point(633, 46);
+            this.txtspos.Margin = new System.Windows.Forms.Padding(4);
+            this.txtspos.Name = "txtspos";
+            this.txtspos.Size = new System.Drawing.Size(209, 22);
+            this.txtspos.TabIndex = 4;
             // 
-            // textBox2
+            // txtvelo
             // 
-            this.textBox2.Location = new System.Drawing.Point(633, 100);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 22);
-            this.textBox2.TabIndex = 5;
+            this.txtvelo.Location = new System.Drawing.Point(633, 100);
+            this.txtvelo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtvelo.Name = "txtvelo";
+            this.txtvelo.Size = new System.Drawing.Size(209, 22);
+            this.txtvelo.TabIndex = 5;
             // 
-            // textBox3
+            // txtmassa
             // 
-            this.textBox3.Location = new System.Drawing.Point(633, 155);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 22);
-            this.textBox3.TabIndex = 6;
+            this.txtmassa.Location = new System.Drawing.Point(633, 155);
+            this.txtmassa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtmassa.Name = "txtmassa";
+            this.txtmassa.Size = new System.Drawing.Size(209, 22);
+            this.txtmassa.TabIndex = 6;
             // 
             // label1
             // 
@@ -145,14 +145,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtmassa);
+            this.Controls.Add(this.txtvelo);
+            this.Controls.Add(this.txtspos);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstPianeti);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -166,9 +166,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtspos;
+        private System.Windows.Forms.TextBox txtvelo;
+        private System.Windows.Forms.TextBox txtmassa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
