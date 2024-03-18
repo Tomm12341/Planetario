@@ -12,6 +12,7 @@ namespace Planetario
 {
     public partial class Form1 : Form
     {
+        Planetario Sistema = new Planetario();
         enum NomiPianeti
         {
             Aztlinte,
@@ -41,16 +42,18 @@ namespace Planetario
 
             if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa))
             {
-                MessageBox.Show("Spostamento non valido");
+                MessageBox.Show("Dati non validi");
             }
             else
-            {
-                spos = pianeta.Spostamento;
+            {  Pianeta p = new Pianeta();
 
-                veloci = pianeta.Velocita;
+                spos = p.Spostamento;
 
-                massa = pianeta.Massa;
+               veloci = p.Velocita;
 
+                massa = p.Massa;
+                
+               
             // Ottiengo un elemento casuale non ancora inserito
             NomiPianeti elementoCasuale;
             do
@@ -72,6 +75,8 @@ namespace Planetario
             txtvelo.Clear();
             txtmassa.Clear();
 
+                Sistema.Pianeti.Add(p);
+               
         }
         }
         private bool TuttiGiaInseriti()
@@ -87,6 +92,35 @@ namespace Planetario
         private void btnRemove_Click(object sender, EventArgs e)
         {
             lstPianeti.Items.Remove(lstPianeti.SelectedItem);
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+            this.Controls.Remove(txtvelo);
+            this.Controls.Remove(txtmassa);
+            this.Controls.Remove(txtspos);
+            this.Controls.Remove(label1);
+            this.Controls.Remove(label2);
+            this.Controls.Remove(label3);
+            this.Controls.Remove(btnAdd);
+            this.Controls.Remove(btnRemove);
+            this.Controls.Remove(btnPlay);
+            this.Controls.Remove(lstPianeti);
+            timer1.Start();
+
+            Graphics g= 
+        }
+        
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
     }

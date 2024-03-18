@@ -60,6 +60,10 @@ namespace Planetario
             return Velocita;
         }
 
+        public void MuoviPianeti()
+        {
+
+        }
         
     }
 }
