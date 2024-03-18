@@ -37,53 +37,42 @@ namespace Planetario
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Pianeta pianeta = new Pianeta();    
-            
-            if(!Vettore.TryParse(txtspos.Text, out Vettore spos))
+            Pianeta pianeta = new Pianeta();
+
+            if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa))
             {
                 MessageBox.Show("Spostamento non valido");
             }
             else
             {
                 spos = pianeta.Spostamento;
-            }
-            if (!Vettore.TryParse(txtvelo.Text, out Vettore veloci))
-            {
-                MessageBox.Show("Velocità non valida");
-            }
-            else
-            {
+
                 veloci = pianeta.Velocita;
-            }
-            if (!double.TryParse(txtmassa.Text, out double massa))
-            {
-                MessageBox.Show("Massa non valida");
-            }
-            else
-            {
+
                 massa = pianeta.Massa;
-            }
 
-
-           
-
-            // Ottieni un elemento casuale non ancora inserito
+            // Ottiengo un elemento casuale non ancora inserito
             NomiPianeti elementoCasuale;
             do
             {
                 elementoCasuale = (NomiPianeti)new Random().Next(0, PianetiInseriti.Length);
             } while (PianetiInseriti[(int)elementoCasuale]);
 
-            // Aggiungi l'elemento alla ListBox
-            lstPianeti.Items.Add(elementoCasuale + " " + txtspos.Text.ToString()+" "+txtvelo.ToString()+" "+txtmassa.ToString());
+            string spostamento = txtspos.Text.ToString();
+            string velocita = txtvelo.Text.ToString();
+            string mas = txtmassa.Text.ToString();
 
-            // Imposta il valore dell'elemento come "inserito"
+            // Aggiungo l'elemento alla ListBox
+            lstPianeti.Items.Add($"{elementoCasuale} - Spostamento: {spostamento}, Velocità: {velocita}, Massa: {mas}");
+
+            // Imposto il valore dell'elemento come "inserito"
             PianetiInseriti[(int)elementoCasuale] = true;
 
             txtspos.Clear();
             txtvelo.Clear();
             txtmassa.Clear();
 
+        }
         }
         private bool TuttiGiaInseriti()
         {
@@ -95,6 +84,10 @@ namespace Planetario
             return true;
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            lstPianeti.Items.Remove(lstPianeti.SelectedItem);
+        }
     }
     }
 

@@ -45,19 +45,16 @@
             // lstPianeti
             // 
             this.lstPianeti.FormattingEnabled = true;
-            this.lstPianeti.ItemHeight = 16;
-            this.lstPianeti.Location = new System.Drawing.Point(116, 33);
-            this.lstPianeti.Margin = new System.Windows.Forms.Padding(4);
+            this.lstPianeti.Location = new System.Drawing.Point(0, 8);
             this.lstPianeti.Name = "lstPianeti";
-            this.lstPianeti.Size = new System.Drawing.Size(404, 212);
+            this.lstPianeti.Size = new System.Drawing.Size(501, 173);
             this.lstPianeti.TabIndex = 0;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(585, 230);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(528, 166);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(153, 36);
+            this.btnAdd.Size = new System.Drawing.Size(115, 29);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -65,83 +62,76 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(791, 230);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemove.Location = new System.Drawing.Point(667, 166);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(161, 36);
+            this.btnRemove.Size = new System.Drawing.Size(121, 29);
             this.btnRemove.TabIndex = 2;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(661, 297);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlay.Location = new System.Drawing.Point(590, 211);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(183, 39);
+            this.btnPlay.Size = new System.Drawing.Size(137, 32);
             this.btnPlay.TabIndex = 3;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
             // 
             // txtspos
             // 
-            this.txtspos.Location = new System.Drawing.Point(633, 46);
-            this.txtspos.Margin = new System.Windows.Forms.Padding(4);
+            this.txtspos.Location = new System.Drawing.Point(604, 37);
             this.txtspos.Name = "txtspos";
-            this.txtspos.Size = new System.Drawing.Size(209, 22);
+            this.txtspos.Size = new System.Drawing.Size(158, 20);
             this.txtspos.TabIndex = 4;
             // 
             // txtvelo
             // 
-            this.txtvelo.Location = new System.Drawing.Point(633, 100);
-            this.txtvelo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtvelo.Location = new System.Drawing.Point(604, 79);
             this.txtvelo.Name = "txtvelo";
-            this.txtvelo.Size = new System.Drawing.Size(209, 22);
+            this.txtvelo.Size = new System.Drawing.Size(158, 20);
             this.txtvelo.TabIndex = 5;
             // 
             // txtmassa
             // 
-            this.txtmassa.Location = new System.Drawing.Point(633, 155);
-            this.txtmassa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtmassa.Location = new System.Drawing.Point(604, 122);
             this.txtmassa.Name = "txtmassa";
-            this.txtmassa.Size = new System.Drawing.Size(209, 22);
+            this.txtmassa.Size = new System.Drawing.Size(158, 20);
             this.txtmassa.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(567, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(568, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 16);
+            this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "S";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(567, 106);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(568, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "V";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(567, 159);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(568, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 16);
+            this.label3.Size = new System.Drawing.Size(16, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "M";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -152,7 +142,6 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstPianeti);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

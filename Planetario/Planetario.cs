@@ -59,6 +59,7 @@ namespace Planetario
             Velocita = Accelerazione(a) * dT;
             return Velocita;
         }
+
         
     }
 }
