@@ -29,6 +29,21 @@ namespace Planetario
             Aerkinu
 
         }
+        private void Disegna(Graphics g, Pianeta p)
+        {
+            float raggio = RaggioPianeta(p.Massa);
+            float x = (float)(Pianeta.Spostamento.x);
+            float y = (float)(Pianeta.Spsotamento.y);
+            g.FillEllipse(new SolidBrush(colore), x, y, raggio, raggio)
+        }
+        /* Prendiamo come rifermento la massa, il raggio e la densità della Terra e usiamo 
+         la proporzione Mt:Rt=Mp:Rp
+         */
+        private float RaggioPianeta(double massa)
+        {
+            
+        }
+
         private bool[] PianetiInseriti;
         public Form1()
         {
@@ -109,7 +124,7 @@ namespace Planetario
             this.Controls.Remove(lstPianeti);
             timer1.Start();
 
-            Graphics g= 
+            
         }
         
         
