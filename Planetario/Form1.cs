@@ -13,6 +13,8 @@ namespace Planetario
     public partial class Form1 : Form
     {
         Planetario Sistema = new Planetario();
+
+        Color[] colore_pianeta = {Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange};
         enum NomiPianeti
         {
             Aztlinte,
@@ -29,19 +31,20 @@ namespace Planetario
             Aerkinu
 
         }
-        private void Disegna(Graphics g, Pianeta p)
+        private void Disegna(Graphics g, Pianeta p, Color colore_pianeta)
         {
             float raggio = RaggioPianeta(p.Massa);
             float x = (float)(Pianeta.Spostamento.x);
-            float y = (float)(Pianeta.Spsotamento.y);
-            g.FillEllipse(new SolidBrush(colore), x, y, raggio, raggio)
+            float y = (float)(Pianeta.Spostamento.y);
+            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, raggio, raggio);
         }
         /* Prendiamo come rifermento la massa, il raggio e la densità della Terra e usiamo 
          la proporzione Mt:Rt=Mp:Rp
          */
         private float RaggioPianeta(double massa)
         {
-            
+            float raggio = (float)((6378 * massa) / 5.98e24);
+            return raggio;
         }
 
         private bool[] PianetiInseriti;
