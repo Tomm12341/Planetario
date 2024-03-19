@@ -129,11 +129,22 @@ namespace Planetario
 
             
         }
-        
-        
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            bool inizia = false;
+            if (inizia == true)
+            {
+                using (Graphics g = this.CreateGraphics())
+                {
+                    for (int i = 0; i < Sistema.Pianeti.Count; i++)
+                    {
+                        Pianeta pianeta = Sistema.Pianeti[i];
+                        Disegna(g, pianeta, colore_pianeta[i]);
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
