@@ -53,15 +53,15 @@ namespace Planetario
             return a.Accelerazione;
         }
 
-        public Vettore Velocita(Pianeta a)
-        {
-            Vettore Velocita=new Vettore(0,1);
-            Velocita = Accelerazione(a) * dT;
-            return Velocita;
-        }
+       
 
         public void MuoviPianeti()
         {
+            foreach(Pianeta p in this.Pianeti)
+            {
+                p.Spostamento = p.Spostamento + (p.Velocita * dT) + (0.5 * p.Accelerazione * (dT * dT));
+                p.Velocita = p.Velocita + (ForzaTotale(p) / p.Massa) * dT;
+            }
 
         }
 

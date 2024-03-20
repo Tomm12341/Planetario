@@ -13,6 +13,7 @@ namespace Planetario
     public partial class Form1 : Form
     {
         Planetario Sistema = new Planetario();
+        
 
         Color[] colore_pianeta = {Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange};
         enum NomiPianeti
@@ -33,43 +34,43 @@ namespace Planetario
         }
         private void Disegna(Graphics g, Pianeta p, Color colore_pianeta)
         {
-            float raggio = RaggioPianeta(p.Massa);
-            float x = (float)(Pianeta.Spostamento.x);
-            float y = (float)(Pianeta.Spostamento.y);
+            float raggio = txtRaggio.text
+            float x = (float)((p.Spostamento.X)/1e6);
+            float y = (float)((p.Spostamento.Y)/1e6);
             g.FillEllipse(new SolidBrush(colore_pianeta), x, y, raggio, raggio);
         }
         /* Prendiamo come rifermento la massa, il raggio e la densità della Terra e usiamo 
          la proporzione Mt:Rt=Mp:Rp
          */
-        private float RaggioPianeta(double massa)
-        {
-            float raggio = (float)((6378 * massa) / 5.98e24);
-            return raggio;
-        }
+        
 
         private bool[] PianetiInseriti;
         public Form1()
         {
             InitializeComponent();
             PianetiInseriti = new bool[Enum.GetValues(typeof(NomiPianeti)).Length];
+            Sistema.Pianeti = new List<Pianeta>();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Pianeta pianeta = new Pianeta();
 
-            if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa))
+            if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa) || !double.TryParse(txtRaggio.Text, out double Raggio))
             {
                 MessageBox.Show("Dati non validi");
             }
             else
-            {  Pianeta p = new Pianeta();
+            {  
 
-                spos = p.Spostamento;
+                spos = pianeta.Spostamento;
 
-               veloci = p.Velocita;
+               veloci = pianeta.Velocita;
 
-                massa = p.Massa;
+                massa = pianeta.Massa;
+
+                Raggio = pianeta.Raggio;
                 
                
             // Ottiengo un elemento casuale non ancora inserito
@@ -93,11 +94,11 @@ namespace Planetario
             txtvelo.Clear();
             txtmassa.Clear();
 
-                Sistema.Pianeti.Add(p);
+                Sistema.Pianeti.Add(pianeta);
                
         }
         }
-        private bool TuttiGiaInseriti()
+        private bool PianetiGiaInseriti()
         {
             foreach (bool inserito in PianetiInseriti)
             {
@@ -126,16 +127,16 @@ namespace Planetario
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
             timer1.Start();
-
+            
             
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            bool inizia = false;
-            if (inizia == true)
-            {
+            
+            
+            
                 using (Graphics g = this.CreateGraphics())
                 {
                     for (int i = 0; i < Sistema.Pianeti.Count; i++)
@@ -144,7 +145,7 @@ namespace Planetario
                         Disegna(g, pianeta, colore_pianeta[i]);
                     }
                 }
-            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
