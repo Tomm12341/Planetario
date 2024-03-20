@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Planetario
 {
     internal class Pianeta
-    { 
+    {
+
         public double Massa { get; set; }
         public double Raggio { get; set; }
         public Vettore Spostamento { get; set; }    

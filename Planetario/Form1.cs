@@ -12,10 +12,29 @@ namespace Planetario
 {
     public partial class Form1 : Form
     {
+        // Creiamo un nuovo planetario in cui possiamo inserire i pianeti
         Planetario Sistema = new Planetario();
-        
 
-        Color[] colore_pianeta = {Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange};
+        // Metodo per convertire le coordinate che inseriamo nella text box (coordinate cartesiane) in coordinate adatte al form che ha il centro in alto a sinista
+        
+        private Vettore Coordinate(Vettore c)
+        {
+            const int limite_X = 10000000;
+            const int limite_Y = 10000000;
+
+            float xc = this.ClientSize.Width / 2;
+            float yc = this.ClientSize.Height / 2;
+
+            float xf = (float)(((xc + c.X) / limite_X) * this.ClientSize.Width / 2);
+            float yf = (float)(-((yc + c.Y) / limite_Y) * this.ClientSize.Height / 2);
+
+            return new Vettore(xf, yf);
+        }
+       
+
+        Color[] colore_pianeta = { Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange };
+
+
         enum NomiPianeti
         {
             Aztlinte,
@@ -32,22 +51,25 @@ namespace Planetario
             Aerkinu
 
         }
-        private void Disegna(Graphics g, Pianeta p, Color colore_pianeta)
+
+        // Metodo per disegnare un pianeta 
+        
+        private void Disegna(Pianeta p, Color colore_pianeta)
         {
-            float raggio = txtRaggio.text
-            float x = (float)((p.Spostamento.X)/1e6);
-            float y = (float)((p.Spostamento.Y)/1e6);
-            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, raggio, raggio);
+            Graphics g = this.CreateGraphics();
+            Vettore corForm = Coordinate(p.Spostamento);
+            float x = (float)((corForm.X));
+            float y = (float)((corForm.Y));
+            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, (float)p.Raggio, (float)p.Raggio);
         }
-        /* Prendiamo come rifermento la massa, il raggio e la densità della Terra e usiamo 
-         la proporzione Mt:Rt=Mp:Rp
-         */
+
         
 
         private bool[] PianetiInseriti;
         public Form1()
         {
             InitializeComponent();
+            // Crea un array di booleani e imposta la sua lunghezza uguale al numero di elementi che ci sono nell'enum dei nomi dei pianeti
             PianetiInseriti = new bool[Enum.GetValues(typeof(NomiPianeti)).Length];
             Sistema.Pianeti = new List<Pianeta>();
 
@@ -62,42 +84,46 @@ namespace Planetario
                 MessageBox.Show("Dati non validi");
             }
             else
-            {  
+            {
 
                 spos = pianeta.Spostamento;
 
-               veloci = pianeta.Velocita;
+                veloci = pianeta.Velocita;
 
                 massa = pianeta.Massa;
 
                 Raggio = pianeta.Raggio;
-                
-               
-            // Ottiengo un elemento casuale non ancora inserito
-            NomiPianeti elementoCasuale;
-            do
-            {
-                elementoCasuale = (NomiPianeti)new Random().Next(0, PianetiInseriti.Length);
-            } while (PianetiInseriti[(int)elementoCasuale]);
 
-            string spostamento = txtspos.Text.ToString();
-            string velocita = txtvelo.Text.ToString();
-            string mas = txtmassa.Text.ToString();
 
-            // Aggiungo l'elemento alla ListBox
-            lstPianeti.Items.Add($"{elementoCasuale} - Spostamento: {spostamento}, Velocità: {velocita}, Massa: {mas}");
+                // Ottiengo un pianeta casuale non ancora inserito
+                NomiPianeti elementoCasuale;
+                do
+                {
+                    elementoCasuale = (NomiPianeti)new Random().Next(0, PianetiInseriti.Length);
+                } while (PianetiInseriti[(int)elementoCasuale]);
 
-            // Imposto il valore dell'elemento come "inserito"
-            PianetiInseriti[(int)elementoCasuale] = true;
+                string spostamento = txtspos.Text.ToString();
+                string velocita = txtvelo.Text.ToString();
+                string mas = txtmassa.Text.ToString();
 
-            txtspos.Clear();
-            txtvelo.Clear();
-            txtmassa.Clear();
+                // Aggiungo l'elemento alla ListBox
+                lstPianeti.Items.Add($"{elementoCasuale} - Spostamento: {spostamento}, Velocità: {velocita}, Massa: {mas}");
 
+                // Imposto il nome del pianeta come "inserito"
+                PianetiInseriti[(int)elementoCasuale] = true;
+
+                txtspos.Clear();
+                txtvelo.Clear();
+                txtmassa.Clear();
+                txtRaggio.Clear();
+
+                // Aggiungo i pianeti al planetario
                 Sistema.Pianeti.Add(pianeta);
-               
+
+            }
         }
-        }
+
+        // Questo metodo mi permette di capire se un pianeta è già stato inserito
         private bool PianetiGiaInseriti()
         {
             foreach (bool inserito in PianetiInseriti)
@@ -126,32 +152,22 @@ namespace Planetario
             this.Controls.Remove(btnRemove);
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
+            this.Controls.Remove(txtRaggio);
+
             timer1.Start();
-            
-            
+
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
-            
-            
-                using (Graphics g = this.CreateGraphics())
-                {
-                    for (int i = 0; i < Sistema.Pianeti.Count; i++)
-                    {
-                        Pianeta pianeta = Sistema.Pianeti[i];
-                        Disegna(g, pianeta, colore_pianeta[i]);
-                    }
-                }
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
-    }
+}
+    
 

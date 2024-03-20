@@ -29,7 +29,7 @@ namespace Planetario
         }
         public static Vettore operator *( Vettore v1,double d)
         {
-            return new Vettore(d * v1.X, d * v1.Y);
+            return new Vettore(v1.X*d  , v1.Y * d);
         }
 
         public static Vettore operator - (Vettore v1, Vettore v2)
