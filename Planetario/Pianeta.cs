@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Planetario
     {
 
         public double Massa { get; set; }
-        
+        public Color colore { get; set; }
         public Vettore Spostamento { get; set; }    
         public Vettore Forza { get; set; }  
         public Vettore Accelerazione { get; set; } 
@@ -38,6 +39,13 @@ namespace Planetario
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{Massa};{colore};{Spostamento};{Forza};{Accelerazione};{Velocita}";
+        }
+
+
 
 
 

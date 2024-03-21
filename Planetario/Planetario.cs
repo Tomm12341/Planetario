@@ -10,7 +10,7 @@ namespace Planetario
 {
     public class Planetario
     {
-        public List<Pianeta> Pianeti { get; set; }
+        public List<Pianeta> Pianeti { get;set; }
         const double G = 6.673e-10;
         const double dT = 0.001;
 
@@ -64,8 +64,9 @@ namespace Planetario
         {
             foreach(Pianeta p in this.Pianeti)
             {
-                p.Spostamento = p.Spostamento + (p.Velocita * dT) + (0.5 * p.Accelerazione * (dT * dT));
-                p.Velocita = p.Velocita + (ForzaTotale(p) / p.Massa) * dT;
+                p.Velocita =Accelerazione(p) * dT;
+                p.Spostamento = p.Spostamento + (p.Velocita * dT) + ((0.5 * Accelerazione(p)) * (dT * dT));
+                
             }
 
         }

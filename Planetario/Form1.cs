@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Planetario
 {
@@ -32,7 +33,7 @@ namespace Planetario
         }
        */
 
-        Color[] colore_pianeta = { Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange };
+        
 
 
         enum NomiPianeti
@@ -54,15 +55,19 @@ namespace Planetario
 
         // Metodo per disegnare un pianeta 
         
-        private void Disegna(Pianeta p, Color colore_pianeta)
+        private void Disegna(Pianeta p)
         {
+            
             Graphics g = this.CreateGraphics();
+          
+
+
             /*
             Vettore corForm = Coordinate(p.Spostamento);
             */
             float x = (float)((p.Spostamento.X));
             float y = (float)((p.Spostamento.Y));
-            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, (float)RaggioPianeta(p.Massa), (float)RaggioPianeta(p.Massa));
+            g.FillEllipse(new SolidBrush(p.colore), x, y, (float)RaggioPianeta(p.Massa), (float)RaggioPianeta(p.Massa));
         }
 
         private double RaggioPianeta(double massa)
@@ -86,6 +91,11 @@ namespace Planetario
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Pianeta pianeta = new Pianeta();
+            pianeta.Accelerazione = new Vettore(0, 0);
+            pianeta.Forza = new Vettore(0, 0);
+            Random rand = new Random();
+            pianeta.colore = Color.FromArgb(rand.Next(256), rand.Next(256), rand.Next(256));
+
 
             if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa))
             {
@@ -94,13 +104,13 @@ namespace Planetario
             else
             {
 
-                spos = pianeta.Spostamento;
+                pianeta.Spostamento = spos;
 
-                veloci = pianeta.Velocita;
+                pianeta.Velocita = veloci;
 
-                massa = pianeta.Massa;
+                pianeta.Massa = massa;
 
-                
+            }
 
 
                 // Ottiengo un pianeta casuale non ancora inserito
@@ -115,7 +125,7 @@ namespace Planetario
                 string mas = txtmassa.Text.ToString();
 
                 // Aggiungo l'elemento alla ListBox
-                lstPianeti.Items.Add($"{elementoCasuale} - Spostamento: {spostamento}, Velocità: {velocita}, Massa: {mas}");
+                lstPianeti.Items.Add(pianeta.ToString());
 
                 // Imposto il nome del pianeta come "inserito"
                 PianetiInseriti[(int)elementoCasuale] = true;
@@ -128,7 +138,7 @@ namespace Planetario
                 // Aggiungo i pianeti al planetario
                 Sistema.Pianeti.Add(pianeta);
 
-            }
+            
         }
        
 
@@ -146,6 +156,7 @@ namespace Planetario
         private void btnRemove_Click(object sender, EventArgs e)
         {
             lstPianeti.Items.Remove(lstPianeti.SelectedItem);
+
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -161,13 +172,12 @@ namespace Planetario
             this.Controls.Remove(btnRemove);
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
-            
-
             timer1.Start();
 
-            
 
             
+
+            /*
             Pianeta p = new Pianeta();
             p.Massa = 240;
             p.Spostamento = new Vettore(500, 500);
@@ -192,15 +202,29 @@ namespace Planetario
             t.Accelerazione = new Vettore(0, 0);
             t.Forza = new Vettore(0, 0);
             Disegna(t, Color.Purple);
+            */
+
+
+
 
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
+            g.Clear(Color.Black);
+            
            for(int i=0; i<300; i++)
             {
                 Sistema.MuoviPianeti();
+          
+            }
+            
+
+            foreach (Pianeta p in Sistema.Pianeti)
+            {
+                Disegna(p);
             }
 
 
