@@ -67,7 +67,7 @@ namespace Planetario
 
         private double RaggioPianeta(double massa)
         {
-            double raggio = (Math.Pow(massa, 1 / 3)) * 5.51;
+            double raggio = (Math.Pow(massa, 0.33333)) * 5.51;
             return raggio;
         }
 
@@ -130,6 +130,7 @@ namespace Planetario
 
             }
         }
+       
 
         // Questo metodo mi permette di capire se un pianeta è già stato inserito
         private bool PianetiGiaInseriti()
@@ -164,30 +165,45 @@ namespace Planetario
 
             timer1.Start();
 
+            
+
+            
             Pianeta p = new Pianeta();
-            p.Massa = 2400;
-            p.Spostamento = new Vettore(500, 760);
+            p.Massa = 240;
+            p.Spostamento = new Vettore(500, 500);
             p.Velocita = new Vettore(10, 30);
             p.Accelerazione=new Vettore (0,0);
-            
             p.Forza = new Vettore(0, 0);
             Disegna(p, Color.Green);
 
             Pianeta es = new Pianeta();
-            es.Massa = 1200000000;
+            es.Massa = 1200;
             es.Spostamento = new Vettore(700, 200);
             es.Velocita = new Vettore(10, 30);
             es.Accelerazione = new Vettore(0, 0);
-            
             es.Forza = new Vettore(0, 0);
             Disegna(es, Color.Yellow);
 
+
+            Pianeta t = new Pianeta();
+            t.Massa = 300;
+            t.Spostamento = new Vettore(900, 300);
+            t.Velocita = new Vettore(10, 30);
+            t.Accelerazione = new Vettore(0, 0);
+            t.Forza = new Vettore(0, 0);
+            Disegna(t, Color.Purple);
 
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+           for(int i=0; i<300; i++)
+            {
+                Sistema.MuoviPianeti();
+            }
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
