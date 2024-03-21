@@ -40,10 +40,7 @@ namespace Planetario
             }
         }
 
-        public override string ToString()
-        {
-            return $"{Massa};{colore};{Spostamento};{Forza};{Accelerazione};{Velocita}";
-        }
+        
 
 
 

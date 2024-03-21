@@ -113,6 +113,7 @@ namespace Planetario
             }
 
 
+
                 // Ottiengo un pianeta casuale non ancora inserito
                 NomiPianeti elementoCasuale;
                 do
@@ -136,9 +137,11 @@ namespace Planetario
                 
 
                 // Aggiungo i pianeti al planetario
+                lstPianeti.Items.Add($"{elementoCasuale} - Spostamento: {spostamento}, Velocità: {velocita}, Massa: {mas}");
                 Sistema.Pianeti.Add(pianeta);
 
-            
+          
+
         }
        
 
@@ -161,7 +164,8 @@ namespace Planetario
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.Black;
+            this.BackColor = Color.Black; 
+
             this.Controls.Remove(txtvelo);
             this.Controls.Remove(txtmassa);
             this.Controls.Remove(txtspos);
@@ -173,6 +177,7 @@ namespace Planetario
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
             timer1.Start();
+          
 
 
             
@@ -229,7 +234,11 @@ namespace Planetario
 
 
         }
+        
 
+
+
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 

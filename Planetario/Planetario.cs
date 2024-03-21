@@ -26,7 +26,7 @@ namespace Planetario
         public Vettore ForzaReale(Pianeta a, Pianeta b)
         {
             double forza = ForzaModulo2pianeti(a, b);
-            return  forza * (a.Spostamento - b.Spostamento).Versore();
+            return  forza * ((a.Spostamento - b.Spostamento).Versore());
         }
 
         // Calcoliamo la forza che agisce su un pianeta in un sistema di più pianeti
@@ -64,9 +64,8 @@ namespace Planetario
         {
             foreach(Pianeta p in this.Pianeti)
             {
-                p.Velocita =Accelerazione(p) * dT;
                 p.Spostamento = p.Spostamento + (p.Velocita * dT) + ((0.5 * Accelerazione(p)) * (dT * dT));
-                
+                p.Velocita = p.Velocita + Accelerazione(p) * dT;
             }
 
         }
