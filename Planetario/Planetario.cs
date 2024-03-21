@@ -15,6 +15,8 @@ namespace Planetario
         const double dT = 0.001;
 
         // Calcoliamo il modulo della forza tra due pianeti
+
+        
         public  double ForzaModulo2pianeti(Pianeta a, Pianeta b)
         {
             Vettore s = b.Spostamento - a.Spostamento;
@@ -38,14 +40,15 @@ namespace Planetario
             {
                 if (a != riferimento)
                 {
-                    forza = ForzaReale(a, riferimento);
+                  
+                     forza = ForzaReale(a, riferimento);
                     riferimento.Forza = forza + riferimento.Forza;
                 }
                 else
                 {
-                    
-// return riferimento.Forza
+                   
                     continue;
+
                 }
             }
             return riferimento.Forza;
@@ -57,17 +60,18 @@ namespace Planetario
             a.Accelerazione = ForzaTotale(a) / a.Massa;
             return a.Accelerazione;
         }
-
+        
        
         // Calcoliamo la legge oraria in modo da far muovere i pianeti
         public void MuoviPianeti()
         {
+       
             foreach(Pianeta p in this.Pianeti)
             {
-                p.Spostamento = p.Spostamento + (p.Velocita * dT) + ((0.5 * Accelerazione(p)) * (dT * dT));
+                p.Spostamento = p.Spostamento + (p.Velocita * dT) + ((0.5 * p.Accelerazione) * (dT * dT));
                 p.Velocita = p.Velocita + Accelerazione(p) * dT;
             }
-
+            
         }
 
 

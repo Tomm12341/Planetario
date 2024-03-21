@@ -33,9 +33,6 @@ namespace Planetario
         }
        */
 
-        
-
-
         enum NomiPianeti
         {
             Aztlinte,
@@ -59,8 +56,6 @@ namespace Planetario
         {
             
             Graphics g = this.CreateGraphics();
-          
-
 
             /*
             Vettore corForm = Coordinate(p.Spostamento);
@@ -125,8 +120,7 @@ namespace Planetario
                 string velocita = txtvelo.Text.ToString();
                 string mas = txtmassa.Text.ToString();
 
-                // Aggiungo l'elemento alla ListBox
-                lstPianeti.Items.Add(pianeta.ToString());
+             
 
                 // Imposto il nome del pianeta come "inserito"
                 PianetiInseriti[(int)elementoCasuale] = true;
@@ -176,11 +170,12 @@ namespace Planetario
             this.Controls.Remove(btnRemove);
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
+
             timer1.Start();
-          
 
 
-            
+
+
 
             /*
             Pianeta p = new Pianeta();
@@ -211,19 +206,20 @@ namespace Planetario
 
 
 
-
         }
+
+        
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            g.Clear(Color.Black);
+           
             
            for(int i=0; i<300; i++)
             {
                 Sistema.MuoviPianeti();
-          
+               
             }
             
 
