@@ -154,12 +154,14 @@ namespace Planetario
         {
             lstPianeti.Items.Remove(lstPianeti.SelectedItem);
 
+
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
             this.BackColor = Color.Black; 
-
+           
+           
             this.Controls.Remove(txtvelo);
             this.Controls.Remove(txtmassa);
             this.Controls.Remove(txtspos);
@@ -173,39 +175,6 @@ namespace Planetario
 
             timer1.Start();
 
-
-
-
-
-            /*
-            Pianeta p = new Pianeta();
-            p.Massa = 240;
-            p.Spostamento = new Vettore(500, 500);
-            p.Velocita = new Vettore(10, 30);
-            p.Accelerazione=new Vettore (0,0);
-            p.Forza = new Vettore(0, 0);
-            Disegna(p, Color.Green);
-
-            Pianeta es = new Pianeta();
-            es.Massa = 1200;
-            es.Spostamento = new Vettore(700, 200);
-            es.Velocita = new Vettore(10, 30);
-            es.Accelerazione = new Vettore(0, 0);
-            es.Forza = new Vettore(0, 0);
-            Disegna(es, Color.Yellow);
-
-
-            Pianeta t = new Pianeta();
-            t.Massa = 300;
-            t.Spostamento = new Vettore(900, 300);
-            t.Velocita = new Vettore(10, 30);
-            t.Accelerazione = new Vettore(0, 0);
-            t.Forza = new Vettore(0, 0);
-            Disegna(t, Color.Purple);
-            */
-
-
-
         }
 
         
@@ -214,7 +183,7 @@ namespace Planetario
         private void timer1_Tick(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-           
+            g.Clear(Color.Black);
             
            for(int i=0; i<300; i++)
             {
@@ -222,12 +191,12 @@ namespace Planetario
                
             }
             
+            
 
             foreach (Pianeta p in Sistema.Pianeti)
             {
                 Disegna(p);
-            }
-
+            } 
 
         }
         
@@ -235,10 +204,7 @@ namespace Planetario
 
 
         
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
     

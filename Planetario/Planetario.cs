@@ -38,18 +38,18 @@ namespace Planetario
            
             foreach (Pianeta a in this.Pianeti)
             {
-                if (a != riferimento)
-                {
-                  
-                     forza = ForzaReale(a, riferimento);
-                    riferimento.Forza = forza + riferimento.Forza;
-                }
-                else
-                {
-                   
-                    continue;
+                Vettore forzaTotale = new Vettore(0, 0);
 
+                foreach (Pianeta p in this.Pianeti)
+                {
+                    if (a != riferimento)
+                    {
+                        forza = ForzaReale(a, riferimento);
+                        forzaTotale += forza;
+                    }
                 }
+
+                return forzaTotale;
             }
             return riferimento.Forza;
         }
