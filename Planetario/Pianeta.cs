@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Planetario
 {
-    internal class Pianeta
+    public class Pianeta
     {
 
         public double Massa { get; set; }
-        public double Raggio { get; set; }
+        
         public Vettore Spostamento { get; set; }    
         public Vettore Forza { get; set; }  
         public Vettore Accelerazione { get; set; } 
@@ -18,7 +18,7 @@ namespace Planetario
 
         public static bool operator ==(Pianeta a, Pianeta b)
         {
-            if(a.Massa == b.Massa && a.Spostamento==b.Spostamento &&  a.Forza == b.Forza && a.Accelerazione==b.Accelerazione && a.Velocita == b.Velocita&&a.Raggio==b.Raggio)
+            if(a.Massa == b.Massa && a.Spostamento==b.Spostamento &&  a.Forza == b.Forza && a.Accelerazione==b.Accelerazione && a.Velocita == b.Velocita)
             {
                 return true;
             }
@@ -29,7 +29,7 @@ namespace Planetario
         }
         public static bool operator !=(Pianeta a, Pianeta b)
         {
-            if (a.Massa != b.Massa || a.Spostamento != b.Spostamento || a.Forza != b.Forza || a.Accelerazione != b.Accelerazione || a.Velocita != b.Velocita||a.Raggio !=b.Raggio)
+            if (a.Massa != b.Massa || a.Spostamento != b.Spostamento || a.Forza != b.Forza || a.Accelerazione != b.Accelerazione || a.Velocita != b.Velocita)
             {
                 return true;
             }

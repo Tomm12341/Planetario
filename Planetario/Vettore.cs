@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Planetario
 {
-    internal class Vettore
+    public class Vettore
     {
         public Vettore(double x, double y)
         {

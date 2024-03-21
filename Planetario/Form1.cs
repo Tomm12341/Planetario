@@ -16,7 +16,7 @@ namespace Planetario
         Planetario Sistema = new Planetario();
 
         // Metodo per convertire le coordinate che inseriamo nella text box (coordinate cartesiane) in coordinate adatte al form che ha il centro in alto a sinista
-        
+        /*
         private Vettore Coordinate(Vettore c)
         {
             const int limite_X = 10000000;
@@ -25,12 +25,12 @@ namespace Planetario
             float xc = this.ClientSize.Width / 2;
             float yc = this.ClientSize.Height / 2;
 
-            float xf = (float)(((xc + c.X) / limite_X) * this.ClientSize.Width / 2);
-            float yf = (float)(-((yc + c.Y) / limite_Y) * this.ClientSize.Height / 2);
+            float xf = (float)(((xc + c.X) / limite_X) * (this.ClientSize.Width / 2));
+            float yf = (float)(-((yc + c.Y) / limite_Y) * (this.ClientSize.Height / 2));
 
             return new Vettore(xf, yf);
         }
-       
+       */
 
         Color[] colore_pianeta = { Color.Beige, Color.Cyan, Color.Green, Color.Magenta, Color.Red, Color.Yellow, Color.Purple, Color.Pink, Color.Orange };
 
@@ -57,10 +57,18 @@ namespace Planetario
         private void Disegna(Pianeta p, Color colore_pianeta)
         {
             Graphics g = this.CreateGraphics();
+            /*
             Vettore corForm = Coordinate(p.Spostamento);
-            float x = (float)((corForm.X));
-            float y = (float)((corForm.Y));
-            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, (float)p.Raggio, (float)p.Raggio);
+            */
+            float x = (float)((p.Spostamento.X));
+            float y = (float)((p.Spostamento.Y));
+            g.FillEllipse(new SolidBrush(colore_pianeta), x, y, (float)RaggioPianeta(p.Massa), (float)RaggioPianeta(p.Massa));
+        }
+
+        private double RaggioPianeta(double massa)
+        {
+            double raggio = (Math.Pow(massa, 1 / 3)) * 5.51;
+            return raggio;
         }
 
         
@@ -79,7 +87,7 @@ namespace Planetario
         {
             Pianeta pianeta = new Pianeta();
 
-            if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa) || !double.TryParse(txtRaggio.Text, out double Raggio))
+            if (!Vettore.TryParse(txtspos.Text, out Vettore spos) || !Vettore.TryParse(txtvelo.Text, out Vettore veloci) || !double.TryParse(txtmassa.Text, out double massa))
             {
                 MessageBox.Show("Dati non validi");
             }
@@ -92,7 +100,7 @@ namespace Planetario
 
                 massa = pianeta.Massa;
 
-                Raggio = pianeta.Raggio;
+                
 
 
                 // Ottiengo un pianeta casuale non ancora inserito
@@ -115,7 +123,7 @@ namespace Planetario
                 txtspos.Clear();
                 txtvelo.Clear();
                 txtmassa.Clear();
-                txtRaggio.Clear();
+                
 
                 // Aggiungo i pianeti al planetario
                 Sistema.Pianeti.Add(pianeta);
@@ -152,9 +160,28 @@ namespace Planetario
             this.Controls.Remove(btnRemove);
             this.Controls.Remove(btnPlay);
             this.Controls.Remove(lstPianeti);
-            this.Controls.Remove(txtRaggio);
+            
 
             timer1.Start();
+
+            Pianeta p = new Pianeta();
+            p.Massa = 2400;
+            p.Spostamento = new Vettore(500, 760);
+            p.Velocita = new Vettore(10, 30);
+            p.Accelerazione=new Vettore (0,0);
+            
+            p.Forza = new Vettore(0, 0);
+            Disegna(p, Color.Green);
+
+            Pianeta es = new Pianeta();
+            es.Massa = 1200000000;
+            es.Spostamento = new Vettore(700, 200);
+            es.Velocita = new Vettore(10, 30);
+            es.Accelerazione = new Vettore(0, 0);
+            
+            es.Forza = new Vettore(0, 0);
+            Disegna(es, Color.Yellow);
+
 
         }
 

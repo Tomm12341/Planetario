@@ -40,8 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtRaggio = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstPianeti
@@ -49,7 +47,7 @@
             this.lstPianeti.FormattingEnabled = true;
             this.lstPianeti.ItemHeight = 16;
             this.lstPianeti.Location = new System.Drawing.Point(0, 10);
-            this.lstPianeti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstPianeti.Margin = new System.Windows.Forms.Padding(4);
             this.lstPianeti.Name = "lstPianeti";
             this.lstPianeti.Size = new System.Drawing.Size(667, 212);
             this.lstPianeti.TabIndex = 0;
@@ -57,7 +55,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(701, 257);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(153, 36);
             this.btnAdd.TabIndex = 1;
@@ -68,7 +66,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(893, 257);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(161, 36);
             this.btnRemove.TabIndex = 2;
@@ -79,7 +77,7 @@
             // btnPlay
             // 
             this.btnPlay.Location = new System.Drawing.Point(787, 301);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(183, 39);
             this.btnPlay.TabIndex = 3;
@@ -90,7 +88,7 @@
             // txtspos
             // 
             this.txtspos.Location = new System.Drawing.Point(805, 46);
-            this.txtspos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtspos.Margin = new System.Windows.Forms.Padding(4);
             this.txtspos.Name = "txtspos";
             this.txtspos.Size = new System.Drawing.Size(209, 22);
             this.txtspos.TabIndex = 4;
@@ -98,7 +96,7 @@
             // txtvelo
             // 
             this.txtvelo.Location = new System.Drawing.Point(805, 97);
-            this.txtvelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtvelo.Margin = new System.Windows.Forms.Padding(4);
             this.txtvelo.Name = "txtvelo";
             this.txtvelo.Size = new System.Drawing.Size(209, 22);
             this.txtvelo.TabIndex = 5;
@@ -106,7 +104,7 @@
             // txtmassa
             // 
             this.txtmassa.Location = new System.Drawing.Point(805, 150);
-            this.txtmassa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtmassa.Margin = new System.Windows.Forms.Padding(4);
             this.txtmassa.Name = "txtmassa";
             this.txtmassa.Size = new System.Drawing.Size(209, 22);
             this.txtmassa.TabIndex = 6;
@@ -145,29 +143,11 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // txtRaggio
-            // 
-            this.txtRaggio.Location = new System.Drawing.Point(805, 200);
-            this.txtRaggio.Name = "txtRaggio";
-            this.txtRaggio.Size = new System.Drawing.Size(209, 22);
-            this.txtRaggio.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(756, 203);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 16);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "R";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtRaggio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -178,7 +158,7 @@
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstPianeti);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -200,8 +180,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox txtRaggio;
-        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Planetario
 {
-    internal class Planetario
+    public class Planetario
     {
         public List<Pianeta> Pianeti { get; set; }
         const double G = 6.673e-10;
