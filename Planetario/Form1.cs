@@ -152,9 +152,10 @@ namespace Planetario
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            int i = lstPianeti.SelectedIndex;
+            Sistema.Pianeti.RemoveAt(i);
             lstPianeti.Items.Remove(lstPianeti.SelectedItem);
-
-
+            
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -174,10 +175,13 @@ namespace Planetario
             this.Controls.Remove(lstPianeti);
 
             timer1.Start();
+           
+            
+               
 
         }
 
-        
+
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -199,12 +203,22 @@ namespace Planetario
             } 
 
         }
-        
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
 
-        
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            
+            
+        }
+        private void Form1_Sizechanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
     

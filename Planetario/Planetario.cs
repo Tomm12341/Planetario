@@ -11,7 +11,7 @@ namespace Planetario
     public class Planetario
     {
         public List<Pianeta> Pianeti { get;set; }
-        const double G = 6.673e-10;
+        const double G = 6.673;
         const double dT = 0.001;
 
         // Calcoliamo il modulo della forza tra due pianeti
