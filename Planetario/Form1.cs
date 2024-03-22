@@ -85,6 +85,13 @@ namespace Planetario
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Se i nomi nell'enum sono già stati inseriti tutti appare un messaggio di errore
+            if (PianetiGiaInseriti())
+            {
+                MessageBox.Show("Tutti i nomi sono stati inseriti");
+                return;
+            }
+            
             Pianeta pianeta = new Pianeta();
             pianeta.Accelerazione = new Vettore(0, 0);
             pianeta.Forza = new Vettore(0, 0);
